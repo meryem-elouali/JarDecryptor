@@ -1,0 +1,18 @@
+{
+  "platform": "windows64",
+  "jdk": "C:\\Program Files\\Java\\jdk-22",
+  "executable": "MonAppJavaFX",
+  "classpath": [
+    "C:\\Users\\ADMIN\\IdeaProjects\\JarDecryptor\\out\\artifacts\\JarDecryptor_jar\\JarDecryptor.jar"
+  ],
+  "mainClass": "com.monapp.MainApp",
+  "vmArgs": [
+    "--module-path", "C:\\Users\\ADMIN\\MoodleQuizMaker\\javafx-sdk-22.0.2\\lib",
+    "--add-modules", "javafx.controls,javafx.fxml,javafx.base,javafx.web,javafx.graphics"
+  ],
+  "resources": [
+    "src/main/resources"
+  ],
+  "minimizeJre": "soft",
+  "output": "packr-output"
+}
