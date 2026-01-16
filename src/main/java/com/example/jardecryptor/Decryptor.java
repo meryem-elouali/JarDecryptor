@@ -68,11 +68,18 @@ public class Decryptor {
         InMemoryClassLoader classLoader = new InMemoryClassLoader(jarBytes);
         Thread.currentThread().setContextClassLoader(classLoader);
 
+        // 🔹 Charger le driver SQLite dans le classloader mémoire
+        try {
+            Class.forName("org.sqlite.JDBC", true, classLoader);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException("SQLite JDBC driver not found in classloader mémoire!", e);
+        }
+
         String mainClassName = classLoader.getMainClassName();
         if (mainClassName == null) {
             throw new RuntimeException("Classe principale non définie dans le manifest.");
         }
-
 
         Class<?> mainClass = classLoader.loadClass(mainClassName);
         Method mainMethod = mainClass.getMethod("main", String[].class);
